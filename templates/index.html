@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Irrigation Control</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#f2f2f2;
+    margin:0;
+    padding:20px;
+    text-align:center;
+}
+
+h1{
+    color:#222;
+}
+
+.card{
+    background:white;
+    max-width:420px;
+    margin:auto;
+    margin-top:20px;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0px 2px 10px rgba(0,0,0,0.2);
+}
+
+button{
+    padding:15px 25px;
+    margin:10px;
+    border:none;
+    border-radius:12px;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.green{
+    background:green;
+}
+
+.red{
+    background:red;
+}
+
+.blue{
+    background:#007BFF;
+}
+
+.gray{
+    background:#555;
+}
+
+input, select{
+    padding:10px;
+    width:60px;
+    margin:5px;
+    text-align:center;
+}
+
+.section{
+    display:none;
+}
+
+</style>
+
+<script>
+
+function showSection(id){
+
+    document.getElementById("home").style.display="none";
+    document.getElementById("pump").style.display="none";
+    document.getElementById("valve").style.display="none";
+
+    document.getElementById(id).style.display="block";
+}
+
+function goHome(){
+
+    document.getElementById("home").style.display="block";
+    document.getElementById("pump").style.display="none";
+    document.getElementById("valve").style.display="none";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>SMART IRRIGATION CONTROL</h1>
+
+<!-- ================= HOME ================= -->
+
+<div id="home" class="section" style="display:block;">
+
+<div class="card">
+
+<h2>Main Dashboard</h2>
+
+<button class="green" onclick="showSection('pump')">
+PUMP CONTROL
+</button>
+
+<br>
+
+<button class="blue" onclick="showSection('valve')">
+VALVE CONTROL
+</button>
+
+</div>
+
+</div>
+
+<!-- ================= PUMP ================= -->
+
+<div id="pump" class="section">
+
+<div class="card">
+
+<h2>Pump Control</h2>
+
+<p>Status: <b id="pumpStatus">OFF</b></p>
+
+<button class="green">
+TURN ON
+</button>
+
+<button class="red">
+TURN OFF
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Scheduler</h2>
+
+<h3>Delay Before Start</h3>
+
+<input placeholder="H">
+<input placeholder="M">
+<input placeholder="S">
+
+<h3>Run Duration</h3>
+
+<input placeholder="H">
+<input placeholder="M">
+<input placeholder="S">
+
+<br><br>
+
+<button class="blue">
+START SCHEDULE
+</button>
+
+</div>
+
+<button class="gray" onclick="goHome()">
+HOME
+</button>
+
+</div>
+
+<!-- ================= VALVE ================= -->
+
+<div id="valve" class="section">
+
+<div class="card">
+
+<h2>Valve Control</h2>
+
+<p>Status: <b id="valveStatus">STOPPED</b></p>
+
+<button class="green">
+OPEN
+</button>
+
+<button class="red">
+CLOSE
+</button>
+
+<button class="gray">
+STOP
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Scheduler</h2>
+
+<h3>Action</h3>
+
+<select>
+<option>OPEN</option>
+<option>CLOSE</option>
+</select>
+
+<h3>Delay Before Action</h3>
+
+<input placeholder="H">
+<input placeholder="M">
+<input placeholder="S">
+
+<h3>Run Duration</h3>
+
+<input placeholder="H">
+<input placeholder="M">
+<input placeholder="S">
+
+<br><br>
+
+<button class="blue">
+START SCHEDULE
+</button>
+
+</div>
+
+<button class="gray" onclick="goHome()">
+HOME
+</button>
+
+</div>
+
+</body>
+</html>
